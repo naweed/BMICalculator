@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:controls="clr-namespace:BMICalculator.Controls"
+             mc:Ignorable="d"
+             x:Class="BMICalculator.Views.Step2Page">
+
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        RowDefinitions="80, *, 140">
+
+
+        <!-- Header/Title -->
+        <Label
+            Grid.Row="0"
+            Text="{Binding Title, Mode=OneWay}"
+            Style="{StaticResource SectionHeaderStyle}" 
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,16"/>
+
+        <!-- Selection Controls -->
+        <Grid
+            x:Name="SelectionGrid"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            ColumnDefinitions="100,*,100"
+            Margin="24">
+
+            <!-- Height Control -->
+            <controls:VerticalGuage 
+                x:Name="HeightControl"
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Maximum="220"
+                Minimum="120"
+                Step="10"
+                MinorTicks="4"
+                IndicatorValue="{Binding SelectedHeight, Mode=TwoWay}"
+                IndicatorValueUnit="cm"
+                IndicatorDirection="Right"
+                WidthRequest="100"
+                HeightRequest="250" />
+
+            <!-- Avatar Image -->
+            <Image
+                x:Name="AvatarImage"
+                Source="{Binding AvatarImage, Mode=OneWay}"
+                Grid.Column="1"
+                Aspect="Fill"
+                HorizontalOptions="Center"
+                VerticalOptions="End" />
+
+            <!-- Weight Control -->
+            <controls:VerticalGuage 
+                x:Name="WeightControl"
+                Grid.Column="2"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Maximum="200"
+                Minimum="40"
+                Step="20"
+                MinorTicks="4"
+                IndicatorValue="{Binding SelectedWeight, Mode=TwoWay}"
+                IndicatorValueUnit="kg"
+                IndicatorDirection="Left"
+                WidthRequest="100"
+                HeightRequest="200"/>
+
+
+        </Grid>
+
+
+        <!-- Next Page Button -->
+        <ImageButton
+            Grid.Row="2"
+            Style="{StaticResource NextButtonStyle}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Command="{Binding GoToResultsPageCommand, Mode=OneWay}" />
+
+    </Grid>
+
+
+</ContentPage>

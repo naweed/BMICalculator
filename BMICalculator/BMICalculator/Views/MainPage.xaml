@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMICalculator.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Spacing="64">
+
+        <!-- Header/Title -->
+        <Label
+            Text="{Binding Title, Mode=OneWay}"
+            Style="{StaticResource SectionHeaderStyle}" 
+            HorizontalOptions="Center" />
+
+
+        <Grid
+            ColumnDefinitions="Auto, 48, Auto">
+
+            <!-- Male -->
+            <ContentView                
+                Grid.Column="0"
+                WidthRequest="140"
+                HeightRequest="140"
+                HorizontalOptions="Center"
+                VerticalOptions="End">
+
+                <Ellipse 
+                    Fill="{StaticResource LightBackgroundColor}"                
+                    StrokeThickness="0"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    InputTransparent="True"/>
+
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectGenderCommand, Mode=OneWay}" CommandParameter="Male" />
+                </ContentView.GestureRecognizers>
+            </ContentView>
+
+            <Image
+                Source="Male.png"
+                Grid.Column="0"
+                HeightRequest="195"
+                WidthRequest="50"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                InputTransparent="True"
+                Margin="0,0,0,16" />
+
+            <Image
+                Source="CheckedIcon.png"
+                Grid.Column="0"
+                WidthRequest="24"
+                HeightRequest="24"
+                IsVisible="{Binding IsMaleSelected, Mode=OneWay}"
+                HorizontalOptions="End"
+                VerticalOptions="Start" 
+                Margin="0,0,12,12" />
+
+
+
+
+            <!-- Female -->
+            <ContentView                
+                Grid.Column="2"
+                WidthRequest="140"
+                HeightRequest="140"
+                HorizontalOptions="Center"
+                VerticalOptions="End">
+
+                <Ellipse 
+                    Fill="{StaticResource LightBackgroundColor}"                
+                    StrokeThickness="0"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    InputTransparent="True"/>
+
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectGenderCommand, Mode=OneWay}" CommandParameter="Female" />
+                </ContentView.GestureRecognizers>
+            </ContentView>
+
+            <Image
+                Source="Female.png"
+                Grid.Column="2"
+                HeightRequest="195"
+                WidthRequest="50"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                InputTransparent="True"
+                Margin="0,0,0,16" />
+
+            <Image
+                Source="CheckedIcon.png"
+                Grid.Column="2"
+                WidthRequest="24"
+                HeightRequest="24"
+                IsVisible="{Binding IsFemaleSelected, Mode=OneWay}"
+                HorizontalOptions="End"
+                VerticalOptions="Start" 
+                Margin="0,0,12,12" />
+
+
+        </Grid>
+
+
+        <!-- Next Page Button -->
+        <ImageButton
+            Style="{StaticResource NextButtonStyle}"
+            HorizontalOptions="Center"
+            Command="{Binding GoToStep2PageCommand, Mode=OneWay}" />
+
+
+    </StackLayout>
+
+</ContentPage>

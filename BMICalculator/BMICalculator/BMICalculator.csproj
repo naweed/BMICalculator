@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\DMSans-Medium.ttf" />
+    <None Remove="Resources\Fonts\DMSans-Regular.ttf" />
+    <None Remove="Resources\Images\CheckedIcon.png" />
+    <None Remove="Resources\Images\Female.png" />
+    <None Remove="Resources\Images\Male.png" />
+    <None Remove="Resources\Images\NextButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\DMSans-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\DMSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Resizetizer.NT" Version="0.1.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1179" />
+    <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.5.3.2" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedImage Include="Resources\Images\CheckedIcon.png" BaseSize="60,60" />
+    <SharedImage Include="Resources\Images\Female.png" BaseSize="206,800" />
+    <SharedImage Include="Resources\Images\Male.png" BaseSize="206,800" />
+    <SharedImage Include="Resources\Images\NextButton.png" BaseSize="123,123" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\VerticalGuage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BMIResultsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Step2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
